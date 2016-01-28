@@ -1,0 +1,13 @@
+diff --git a/lib/module.js b/lib/module.js
+index 4ac8cfa..ebd4dd8 100644
+--- a/lib/module.js
++++ b/lib/module.js
+@@ -132,7 +132,7 @@ Module._realpathCache = {};
+ function tryFile(requestPath) {
+   var stats = statPath(requestPath);
+   if (stats && !stats.isDirectory()) {
+-    return fs.realpathSync(requestPath, Module._realpathCache);
++    return path.resolve(requestPath);
+   }
+   return false;
+ }
